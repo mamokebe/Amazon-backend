@@ -5,6 +5,7 @@ dotenv.config();
 
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const app = express();
+const port = process.env.PORT || 5000;
 // app.use(cors({ origin: true }));
 app.use(cors());
 
@@ -34,7 +35,7 @@ app.post("/payment/create", async (req, res) => {
   }
 });
 
-app.listen(5000, (err) => {
+app.listen(port, (err) => {
   if (err) throw err;
-  console.log("Amazon server running on PORT: 5000, http://localhost:5000");
+  console.log(`Amazon server running on: http://localhost:${port}`);
 });
